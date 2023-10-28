@@ -11,5 +11,5 @@ abstract class Env {
   static String baseUrl = _Env.baseUrl;
 
   @EnviedField(varName: 'apiKey')
-  static String apiKey = _Env.hashOne;
+  static String apiKey = _Env.apiKey;
 }
