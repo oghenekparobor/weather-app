@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:weather_app_test_foodcourt/core/logger/log.dart';
+import 'package:weather_app_test_foodcourt/core/env/env.dart';
 
 @lazySingleton
 class NetworkRequester {
@@ -30,61 +30,57 @@ class NetworkRequester {
     return response.data;
   }
 
-  Future<dynamic> post(
-    String endpoint, {
-    required Map<String, dynamic> data,
-    bool isProtected = true,
-    bool isFormData = false,
-  }) async {
-    AppLogger.log(data);
+  // Future<dynamic> post(
+  //   String endpoint, {
+  //   required Map<String, dynamic> data,
+  //   bool isProtected = true,
+  //   bool isFormData = false,
+  // }) async {
+  //   AppLogger.log(data);
 
-    Response response = await dio.post(
-      '${Env.baseUrl}$endpoint',
-      data: isFormData ? FormData.fromMap(data) : data,
-      options: Options(headers: {
-        // if (isProtected) 'Authorization': 'Bearer $_token',
-        'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
-      }),
-    );
+  //   Response response = await dio.post(
+  //     '${Env.baseUrl}$endpoint',
+  //     data: isFormData ? FormData.fromMap(data) : data,
+  //     options: Options(headers: {
+  //       if (isProtected) 'Authorization': 'Bearer $_token',
+  //       'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
+  //     }),
+  //   );
 
-    return response.data;
-  }
+  //   return response.data;
+  // }
 
-  Future<dynamic> patch(
-    String endpoint, {
-    required Map<String, dynamic> data,
-    bool isProtected = true,
-    bool isFormData = false,
-  }) async {
-    Response response = await dio.patch(
-      '${Env.baseUrl}$endpoint',
-      data: isFormData ? FormData.fromMap(data) : data,
-      options: Options(headers: {
-        // if (isProtected) 'Authorization': 'Bearer $_token',
-        'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
-      }),
-    );
+  // Future<dynamic> patch(
+  //   String endpoint, {
+  //   required Map<String, dynamic> data,
+  //   bool isProtected = true,
+  //   bool isFormData = false,
+  // }) async {
+  //   Response response = await dio.patch(
+  //     '${Env.baseUrl}$endpoint',
+  //     data: isFormData ? FormData.fromMap(data) : data,
+  //     options: Options(headers: {
+  //       // if (isProtected) 'Authorization': 'Bearer $_token',
+  //       'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
+  //     }),
+  //   );
 
-    return response.data;
-  }
+  //   return response.data;
+  // }
 
-  Future<dynamic> delete(
-    String endpoint, {
-    bool isProtected = true,
-    bool isFormData = false,
-  }) async {
-    Response response = await dio.delete(
-      '${Env.baseUrl}$endpoint',
-      options: Options(headers: {
-        // if (isProtected) 'Authorization': 'Bearer $_token',
-        'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
-      }),
-    );
+  // Future<dynamic> delete(
+  //   String endpoint, {
+  //   bool isProtected = true,
+  //   bool isFormData = false,
+  // }) async {
+  //   Response response = await dio.delete(
+  //     '${Env.baseUrl}$endpoint',
+  //     options: Options(headers: {
+  //       // if (isProtected) 'Authorization': 'Bearer $_token',
+  //       'Content-Type': isFormData ? 'multipart/form-data' : 'application/json',
+  //     }),
+  //   );
 
-    return response.data;
-  }
-}
-
-class Env {
-  static String baseUrl = 'https://api.openweathermap.org';
+  //   return response.data;
+  // }
 }

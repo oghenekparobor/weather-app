@@ -2,15 +2,15 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:weather_app_test_foodcourt/core/extension/context.dart';
 import 'package:weather_app_test_foodcourt/core/storage/secure.dart';
 import 'package:weather_app_test_foodcourt/core/widgets/notification.dart';
-import 'package:weather_app_test_foodcourt/main.dart';
 
 abstract class NetworkInfo {
   Future<bool> isConnected();
-  StreamSubscription<ConnectivityResult> getConnectivity();
+  StreamSubscription<ConnectivityResult> getConnectivity(BuildContext context);
   void cancelInternetChecker();
 }
 
@@ -37,7 +37,9 @@ class NetworkInfoImpl implements NetworkInfo {
   bool isDeviceConnected = false;
 
   @override
-  StreamSubscription<ConnectivityResult> getConnectivity() =>
+  StreamSubscription<ConnectivityResult> getConnectivity(
+    BuildContext context,
+  ) =>
       internetCheckerSubscription =
           Connectivity().onConnectivityChanged.listen((event) async {
         isDeviceConnected = await isConnected();
@@ -46,23 +48,27 @@ class NetworkInfoImpl implements NetworkInfo {
         if (!isDeviceConnected) {
           if (networkStatus != 'NO_NETWORK') {
             storage.setTo('WEATHER_APP_NETWORK_STATUS', 'NO_NETWORK');
-            navkey.currentContext!.notify.addNotification(
-              const NotificationTile(
-                message: 'Oops! It looks like you\'ve lost your connection',
-                type: NotificationType.error,
-              ),
-            );
+            if (context.mounted) {
+              context.notify.addNotification(
+                const NotificationTile(
+                  message: 'Oops! It looks like you\'ve lost your connection',
+                  type: NotificationType.error,
+                ),
+              );
+            }
           }
         } else {
           if (networkStatus == 'NO_NETWORK') {
             storage.setTo('WEATHER_APP_NETWORK_STATUS', 'NETWORK_AVAILABLE');
-            navkey.currentContext!.notify.removeNotification();
+            if (context.mounted) {
+              context.notify.removeNotification();
 
-            navkey.currentContext!.notify.addNotification(
-              const NotificationTile(
-                message: 'Great news! Your connection is back',
-              ),
-            );
+              context.notify.addNotification(
+                const NotificationTile(
+                  message: 'Great news! Your connection is back',
+                ),
+              );
+            }
           }
         }
       });

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 @module
@@ -14,4 +15,7 @@ abstract class RegisterModule {
 
   @preResolve
   Future<SharedPreferences> get preferences => SharedPreferences.getInstance();
+
+  @lazySingleton
+  Location get location => Location();
 }
