@@ -20,6 +20,5 @@ samples, guidance on mobile development, and a full API reference.
 - Install the flutter plugins ```echo "baseUrl=https://api.openweathermap.org" > .env```
 - Replace ```******apikey******``` with your apikey before run the next command
 - Install the flutter plugins ```echo "apiKey=******apikey******" > .env```
-- Install the flutter plugins ```flutter pub get```
 - Get all generated classes ```dart run build_runner build --delete-conflicting-outputs```
 - We either you physical device connected or an emulator run the project ```flutter run```
