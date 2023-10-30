@@ -8,6 +8,13 @@
 - User can opening list of cities and add to Carousel at the center left side of the screen
 - On selecting any of the choosen cities the weaher forecast of that city is loaded
 
+### Feature
+- Gets current location
+- Get weather Information
+- Shows sunrise and sunset
+- Read local json file
+- Persisit information to shared preference
+
 ### Project Setup
 - Click on the code button to see the repo link
 - Open your terminal and run ``` git clone  https://github.com/oghenekparobor/weather-app.git ```
