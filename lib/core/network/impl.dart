@@ -11,11 +11,11 @@ class ImplFormatter {
 
   final NetworkInfo networkInfo;
 
-  Future<AppState> format(Function function) async {
-    if (await networkInfo.isConnected()) {
+  Future<AppState> format(Function function, {bool isLocal = false}) async {
+    if (await networkInfo.isConnected() || isLocal) {
       try {
         return LoadedState(await function.call());
-      } on DioException catch (e, s) {
+      } on DioException catch (e) {
         if (e.type == DioExceptionType.receiveTimeout ||
             e.type == DioExceptionType.connectionTimeout) {
           return ErrorState('Connection timed out');
@@ -30,7 +30,7 @@ class ImplFormatter {
         }
 
         return ErrorState(e.message ?? '');
-      } catch (e, s) {
+      } catch (e) {
         return ErrorState(e.toString());
       }
     } else {

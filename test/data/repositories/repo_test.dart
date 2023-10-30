@@ -23,14 +23,12 @@ class MockLocal extends Mock implements LocalDS {}
 
 void main() {
   late MockFormatter fmt;
-  late MockNetworkRequester requester;
   late MockLocal local;
   late MockRemote remote;
   late MyRepo repo;
 
   setUp(() {
     fmt = MockFormatter();
-    requester = MockNetworkRequester();
     local = MockLocal();
     remote = MockRemote();
 

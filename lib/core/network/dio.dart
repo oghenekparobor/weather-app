@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:weather_app_test_foodcourt/core/env/env.dart';
+import 'package:weather_app_test_foodcourt/core/logger/log.dart';
 
 @lazySingleton
 class NetworkRequester {
@@ -12,14 +13,12 @@ class NetworkRequester {
 
   final Dio dio;
 
-  late Timer timer;
-
   Future<dynamic> get(
     String endpoint, {
     bool isProtected = true,
     bool isFormData = false,
   }) async {
-    Response response = await dio.get(
+    Response response = await Dio().get(
       '${Env.baseUrl}$endpoint',
       options: Options(headers: {
         // if (isProtected) 'Authorization': 'Bearer $_token',

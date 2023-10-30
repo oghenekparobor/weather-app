@@ -34,7 +34,7 @@ class MyRepoImpl implements MyRepo {
     return fmt.format(() async {
       // decode the json string gotten from the local datasource/assets folder
       return jsonDecode(await localDS.fromJson(Strings.citiesFile));
-    });
+    }, isLocal: true);
   }
 
   @override
