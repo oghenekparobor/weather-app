@@ -1,16 +1,12 @@
 
-## Getting Started
+## Weatger App
 
-This project is a flutter application and Flutter SDK needs to be setup to run the project.
 
-A few resources to get you started if this is your first attempt running a Flutter project:
-
-- [Setup: Install Flutter SDK](https://docs.flutter.dev/get-started/install)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### How It Works
+- On first launch user grants app permission
+- On launch it get weather of device current location
+- User can opening list of cities and add to Carousel at the center left side of the screen
+- On selecting any of the choosen cities the weaher forecast of that city is loaded
 
 ### Project Setup
 - Click on the code button to see the repo link
