@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:weather_app_test_foodcourt/core/env/env.dart';
-import 'package:weather_app_test_foodcourt/core/logger/log.dart';
 
 @lazySingleton
 class NetworkRequester {
