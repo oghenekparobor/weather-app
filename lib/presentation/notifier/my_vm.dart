@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:weather_app_test_foodcourt/core/extension/app_state.dart';
-import 'package:weather_app_test_foodcourt/core/logger/log.dart';
 import 'package:weather_app_test_foodcourt/core/params/no_param.dart';
 import 'package:weather_app_test_foodcourt/core/service-locator/injection_container.dart';
 import 'package:weather_app_test_foodcourt/core/state/state.dart';
