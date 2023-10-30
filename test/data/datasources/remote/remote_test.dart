@@ -24,7 +24,7 @@ void main() {
     );
 
     String expectedUrl =
-        '/data/3.0/onecall?lat=37.7749&lon=-122.4194&exclude=minutely,hourly,daily,alerts&appid=${Env.apiKey}';
+        '/data/2.5/weather?lat=37.7749&lon=-122.4194&appid=${Env.apiKey}';
 
     Map<String, dynamic> response = {
       "lat": 33.44,

@@ -109,7 +109,7 @@ void main() {
     ]);
 
     when(
-      () => fmt.format(any()),
+      () => fmt.format(any(), isLocal: true),
     ).thenAnswer((_) async => LoadedState(result));
 
     when(

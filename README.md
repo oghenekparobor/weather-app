@@ -21,4 +21,5 @@ samples, guidance on mobile development, and a full API reference.
 - Replace ```******apikey******``` with your apikey before run the next command
 - Install the flutter plugins ```echo "apiKey=******apikey******" > .env```
 - Get all generated classes ```dart run build_runner build --delete-conflicting-outputs```
+- Install the flutter plugins ```flutter test```
 - We either you physical device connected or an emulator run the project ```flutter run```
