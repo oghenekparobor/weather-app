@@ -8,20 +8,16 @@ class Main extends MainEntity {
     required super.tempMax,
     required super.pressure,
     required super.humidity,
-    required super.seaLevel,
-    required super.grndLevel,
   });
 
   factory Main.fromJson(Map<String, dynamic> json) {
     return Main(
-      temp: json['temp'],
-      feelsLike: json['feels_like'],
-      tempMin: json['temp_min'],
-      tempMax: json['temp_max'],
-      pressure: json['pressure'],
-      humidity: json['humidity'],
-      seaLevel: json['sea_level'],
-      grndLevel: json['grnd_level'],
+      temp: json['temp'] ?? 0,
+      feelsLike: json['feels_like'] ?? 0,
+      tempMin: json['temp_min'] ?? 0,
+      tempMax: json['temp_max'] ?? 0,
+      pressure: json['pressure'] ?? 0,
+      humidity: json['humidity'] ?? 0,
     );
   }
 
@@ -33,8 +29,6 @@ class Main extends MainEntity {
       'temp_max': tempMax,
       'pressure': pressure,
       'humidity': humidity,
-      'sea_level': seaLevel,
-      'grnd_level': grndLevel,
     };
   }
 }

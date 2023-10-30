@@ -9,9 +9,9 @@ class Sys extends SysEntity {
 
   factory Sys.fromJson(Map<String, dynamic> json) {
     return Sys(
-      country: json['country'],
-      sunrise: json['sunrise'],
-      sunset: json['sunset'],
+      country: json['country'] ?? 'NG',
+      sunrise: json['sunrise'] ?? 0,
+      sunset: json['sunset'] ?? 0,
     );
   }
 

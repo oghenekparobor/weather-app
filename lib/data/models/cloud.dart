@@ -5,7 +5,7 @@ class Clouds extends CloudsEntity {
 
   factory Clouds.fromJson(Map<String, dynamic> json) {
     return Clouds(
-      all: json['all'],
+      all: json['all'] ?? 0,
     );
   }
 

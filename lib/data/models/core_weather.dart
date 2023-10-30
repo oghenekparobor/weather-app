@@ -1,3 +1,4 @@
+import 'package:weather_app_test_foodcourt/core/logger/log.dart';
 import 'package:weather_app_test_foodcourt/data/models/cloud.dart';
 import 'package:weather_app_test_foodcourt/data/models/main.dart';
 import 'package:weather_app_test_foodcourt/data/models/sys.dart';
@@ -20,19 +21,21 @@ class CoreWeather extends CoreWeatherEntity {
   });
 
   factory CoreWeather.fromJson(Map<String, dynamic> json) {
+    AppLogger.log(json);
+
     return CoreWeather(
       weather: (json['weather'] as List<dynamic>)
           .map((weather) => Weather.fromJson(weather))
           .toList(),
-      base: json['base'],
+      base: json['base'] ?? 'station',
       main: Main.fromJson(json['main']),
-      visibility: json['visibility'],
+      visibility: json['visibility'] ?? 10000,
       wind: Wind.fromJson(json['wind']),
       clouds: Clouds.fromJson(json['clouds']),
-      dt: json['dt'],
+      dt: json['dt'] ?? 0,
       sys: Sys.fromJson(json['sys']),
-      id: json['id'],
-      name: json['name'],
+      id: json['id'] ?? DateTime.now().millisecondsSinceEpoch,
+      name: json['name'] ?? '',
     );
   }
 

@@ -7,6 +7,7 @@ import 'package:weather_app_test_foodcourt/core/extension/context.dart';
 import 'package:weather_app_test_foodcourt/core/extension/double.dart';
 import 'package:weather_app_test_foodcourt/core/extension/string.dart';
 import 'package:weather_app_test_foodcourt/core/extension/widget.dart';
+import 'package:weather_app_test_foodcourt/core/logger/log.dart';
 import 'package:weather_app_test_foodcourt/core/service-locator/injection_container.dart';
 import 'package:weather_app_test_foodcourt/presentation/notifier/my_vm.dart';
 import 'package:weather_app_test_foodcourt/presentation/widgets/city_slider.dart';
@@ -47,8 +48,10 @@ class _HomePageState extends State<HomePage> {
               75.verticalSpace,
               const Header().padHorizontal,
               if (context.read<MyViewModel>().hasPermission) ...{
-                Consumer<MyViewModel>(
-                  builder: (_, value, __) => value.hasError
+                Consumer<MyViewModel>(builder: (_, value, __) {
+                  AppLogger.log(value.weathers);
+
+                  return value.hasError
                       ? Expanded(
                           child: Center(
                             child: Column(
@@ -111,8 +114,8 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-                            ),
-                ),
+                            );
+                }),
               } else ...{
                 Expanded(
                   child: Center(

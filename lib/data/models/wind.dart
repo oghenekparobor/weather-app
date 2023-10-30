@@ -4,14 +4,12 @@ class Wind extends WindEntity {
   Wind({
     required super.speed,
     required super.deg,
-    required super.gust,
   });
 
   factory Wind.fromJson(Map<String, dynamic> json) {
     return Wind(
-      speed: json['speed'],
-      deg: json['deg'],
-      gust: json['gust'],
+      speed: json['speed'] ?? 0,
+      deg: json['deg'] ?? 0,
     );
   }
 
@@ -19,7 +17,6 @@ class Wind extends WindEntity {
     return {
       'speed': speed,
       'deg': deg,
-      'gust': gust,
     };
   }
 }

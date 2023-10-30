@@ -5,8 +5,6 @@ class MainEntity {
   final double tempMax;
   final int pressure;
   final int humidity;
-  final int seaLevel;
-  final int grndLevel;
 
   MainEntity({
     required this.temp,
@@ -15,7 +13,5 @@ class MainEntity {
     required this.tempMax,
     required this.pressure,
     required this.humidity,
-    required this.seaLevel,
-    required this.grndLevel,
   });
 }

@@ -10,10 +10,10 @@ class Weather extends WeatherEntity {
 
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-      id: json['id'],
-      main: json['main'],
-      description: json['description'],
-      icon: json['icon'],
+      id: json['id'] ?? '',
+      main: json['main'] ?? '',
+      description: json['description'] ?? '',
+      icon: json['icon'] ?? '',
     );
   }
 
