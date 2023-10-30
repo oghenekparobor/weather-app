@@ -1,7 +1,6 @@
 
 ## Weatger App
 
-
 ### How It Works
 - On first launch user grants app permission
 - On launch it get weather of device current location
